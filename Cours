@@ -1,0 +1,84 @@
+<?php
+
+// Une class ne s'execute pas, il est la pour donner les ingredients qui seront appelés plus tard 
+//une attribut ou proprité est une variable que l'on declare dans la class
+//une methode est une fonction que l'on declare dans la class
+// il exite 3 identite: private, public, protected 
+// private pour que la variable ne puisse pas être appele dans un autre fichier ni en dehors de la class,
+// public pour pouvoir l'appeler après dans la suite du code et dans un autre fichier
+// protected pour dire que cette propriété est accecible dans cette class et dans les enfants de cette class
+
+class Crepe {
+    
+    public $farine;                     // entier qui correspond a la quantité de farine en gramme
+    public $lait;                       // entier qui correspond a la quantité de lait en litre
+    public $oeuf;                       // entier qui correspond au nombre d'oeuf
+    public $bière;                      // entier qui correspond a la quantité de bière en cuillere a soupe
+    public $sucreVanille;               // entier qui correspond a la quantité de sachet
+    public $sucre;                      // entier qui correspond a la quantité de sucre en gramme
+    public $rhum;                       // entier qui correspond a la quantité de rhum en cuillére a soupe
+    public $beurre;                     // entier qui correspond a la quantité de beurre en gramme
+    public $topping;                    // tableau qui correspond au supplement a ajouter sur la crépe
+
+// il faut obligatoire mettre une function construct dans laquelle nous devons enummérer toutes les variables
+// il sert a créer un objet qui sert a la class en prenant tous les attribut et en les fusionnnant .
+// il faut mettre double inderscore avec construct()
+// le this fait référénce a la propirété déclare
+// Pour rendre public un efonction, on ajoute public devant sinon elle ne pourra etre appelé apres
+
+    public function __construct( $farine, $lait,$oeuf, $bière, $sucreVanille, $sucre, $rhum, $beurre ){
+        $this->farine =$farine;
+        $this->lait =$lait;
+        $this->oeuf =$oeuf;
+        $this->bière =$bière;
+        $this->sucreVanille =$sucreVanille;
+        $this->sucre =$sucre;
+        $this->rhum =$rhum;
+        $this->beurre =$beurre;
+        $this->topping = $topping;
+    }
+
+    public function Afficher_recette (){
+
+        function Afficher_recette (){
+
+            echo ("Pour faire une pate à crèpe il te faut:\n"); 
+            echo  ("-".$this->farine." gramme de farine\n " )  ;           // ne pas oublier le point entre chaque élèment à concaténer
+            echo  "-".$this->lait." litre de lait \n" ;
+            echo  "-".$this->oeuf." oeufs\n" ;
+            echo  "-".$this->bière." litres de bière\n" ;
+            echo  "-".$this->sucreVanille." sachet de sucre vanillé\n ";
+            echo  "-".$this->sucre." gramme de sucre\n" ;
+            echo  "-".$this->rhum." litres de rhum\n";
+            echo  "-".$this->beurre." grammes de beurre\n";
+            echo  "-".$this->topping;
+        }
+    }
+    
+}
+// Les objets s’instancient avec le mot clef new comme en Java ou C++ mais on utilise -> pour signifier l’appel d’une méthode
+
+// Pour utiliser une class et la retouver dans un autre fichier , il faut utiliser require telle que :
+// require 'Class_crepe.php';
+// Lorsque l'on nous demande de creer un objet, on cree un variable avec new suivi du nom de la class
+
+// $variable = new Crepe(500,1,5,5,1,50,5,80,nutella);          il faut mettre les paramètres entre les parenthèses
+// var_dump($variable);              var_dump est comme echo mais il donne beaucoup plus d'informations
+echo $variable->Afficher_recette();        // pour aller chercher la function Afficher_recette 
+
+// Pour additionner deux string il faut mettre des points entre sinon ça ne fonctionne pas 
+// "-".$this->farine." gramme de farine\n "   ;
+
+// Pour une propriéte private, si nous l'appelons depuis une methode, la propiété va etre lu.
+// echo $variable->Afficher_recette() ;     ça affiche la variable private car Afficher recette est dans la classe
+// echo $b->rhum;                           rhum n'est pas accéssible car la propiété est private
+
+// la fonction get sert à aller  chercher une propriété privé pour la rendre public
+
+// public function getRhum(){
+//     return $this->rhum;
+// }
+// Pour l'afficher il faut mettre:
+// echo $variable->getRhum();                      car on va chercher le getRhum dans la classe Crepe
+
+// la function match est la meme chose que switch case;
