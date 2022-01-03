@@ -82,3 +82,29 @@ echo $variable->Afficher_recette();        // pour aller chercher la function Af
 // echo $variable->getRhum();                      car on va chercher le getRhum dans la classe Crepe
 
 // la function match est la meme chose que switch case;
+
+// la function set modifier la valeur d'un attibut privé
+
+// public function setRhum ($para){
+//     $this->rhum = ($para);
+//    }
+// Pour l'afficher il faut mettre:
+// echo $variable->setRhum("Caramel");
+
+//function pour ajouter un tableau pour le topping, ajouter en lieu et place de l'ancien ingredient topping.
+
+// public function topping ($str){
+//     // $this->topping = array("Nutella");       
+//     array_push($this->topping,"$str");
+// }
+
+// Pour effacer un élement dans un tableau
+
+// public function delete($str){
+//     $element = $str;
+//     unset($this->topping[array_search($element,$this->topping)]);
+// }
+
+// Pour ne plus être sensible a la casse, il faut utiliser la fonction strtolower qui va rendre ton string en minuscule.
+
+// $element = strtolower($str);

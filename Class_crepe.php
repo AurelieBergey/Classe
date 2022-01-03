@@ -13,7 +13,7 @@ class Crepe {
     public $topping;                    // tableau qui correspond au supplement a ajouter sur la crépe
 
 
-    public function __construct( $farine, $lait,$oeuf, $bière, $sucreVanille, $sucre, $rhum, $beurre ){
+    public function __construct( $farine, $lait,$oeuf, $bière, $sucreVanille, $sucre, $rhum, $beurre, $topping ){
         $this->farine =$farine;
         $this->lait =$lait;
         $this->oeuf =$oeuf;
@@ -41,6 +41,21 @@ class Crepe {
     
     public function getRhum(){
     return $this->rhum;
+    }
+
+    public function setRhum ($para){
+         $this->rhum = ($para);
+        
+    }
+
+    public function topping ($str){
+      $element = strtolower($str);
+        array_push($this->topping,$element) ;
+    }
+
+    public function delete($str){
+        $element = strtolower($str);
+        unset($this->topping[array_search($element,$this->topping)]);
     }
 }
 
